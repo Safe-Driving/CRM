@@ -7,6 +7,8 @@ gem 'rails', '3.0.5'
 
 gem 'sqlite3'
 gem 'annotate'
+gem 'formtastic', '~> 1.2.3'
+gem 'heroku'
 
 # Use unicorn as the web server
 # gem 'unicorn'
