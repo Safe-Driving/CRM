@@ -9,6 +9,8 @@ gem 'sqlite3'
 gem 'annotate'
 gem 'formtastic', '~> 1.2.3'
 gem 'heroku'
+gem 'devise'
+gem 'cancan'
 
 # Use unicorn as the web server
 # gem 'unicorn'
