@@ -22,5 +22,20 @@ CRM::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+
+  config.action_mailer.default_url_options = { :host => 'safe-driving.eu' }
+
+  ActionMailer::Base.raise_delivery_errors = true
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+      :tls => true,
+      :address => "smtp.gmail.com",
+      :port => 587,
+      :domain => "safe-driving.eu",
+      :authentication => :plain,
+      :user_name => "edebout.safedriving@gmail.com",
+      :password => "edgarddebout"
+  }
 end
 
