@@ -1,4 +1,4 @@
-CRM::Application.routes.draw do
+  CRM::Application.routes.draw do
   devise_for :clients
 
   root :to => "content#index"
