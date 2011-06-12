@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110429233752) do
+ActiveRecord::Schema.define(:version => 20110429235308) do
+
+  create_table "agencies", :force => true do |t|
+    t.string   "city"
+    t.string   "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "clients", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -34,5 +41,90 @@ ActiveRecord::Schema.define(:version => 20110429233752) do
 
   add_index "clients", ["email"], :name => "index_clients_on_email", :unique => true
   add_index "clients", ["reset_password_token"], :name => "index_clients_on_reset_password_token", :unique => true
+
+  create_table "leaders", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "role"
+    t.integer  "agence"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "places", :force => true do |t|
+    t.string   "name"
+    t.string   "city"
+    t.string   "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "places_availabilities", :force => true do |t|
+    t.integer  "place"
+    t.datetime "date_begin"
+    t.datetime "date_end"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sessions", :force => true do |t|
+    t.datetime "date"
+    t.integer  "integer"
+    t.string   "type"
+    t.integer  "users_number"
+    t.integer  "trainer"
+    t.integer  "place"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sessions_participations", :force => true do |t|
+    t.integer  "client"
+    t.integer  "session"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sessions_scores", :force => true do |t|
+    t.integer  "session"
+    t.integer  "client"
+    t.integer  "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tests_scores", :force => true do |t|
+    t.datetime "date"
+    t.integer  "client"
+    t.integer  "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "trainers_availabilities", :force => true do |t|
+    t.integer  "trainer"
+    t.datetime "date_begin"
+    t.datetime "date_end"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vehicles", :force => true do |t|
+    t.string   "type"
+    t.string   "brand"
+    t.string   "model"
+    t.integer  "agence"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vehicles_availabilities", :force => true do |t|
+    t.integer  "vehicle"
+    t.datetime "date_begin"
+    t.datetime "date_end"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

@@ -1,0 +1,25 @@
+<h1>Agencies#index</h1>
+<table class="forum_table">
+
+
+  <tr>
+    <th>Agences</th>
+  </tr>
+
+
+  <% @agencies.each do |agency| %>
+      <tr onclick="location.href='<%= url_for agency_path(agency.id) %>'" class="forum_list">
+        <td class="forum_name">
+          <p><a href="<%= url_for agency_path(agency.id) %>"><%= agency.city %></a></p>
+          <p><%= link_to "éditer l'agence", edit_agency_path(agency.id) %></p>
+          <%= link_to "Supprimer", agency_path(agency.id), :confirm => "Are you sure?", :method => :delete %>
+        </td>
+
+      </tr>
+  <% end %>
+
+</table>
+
+<div>
+        <%= link_to "Créer une nouvelle agence", new_agency_path %>
+  </div>
