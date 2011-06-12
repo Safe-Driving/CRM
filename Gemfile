@@ -11,6 +11,7 @@ gem 'formtastic', '~> 1.2.3'
 gem 'heroku'
 gem 'devise'
 gem 'cancan'
+gem 'activerecord'
 
 # Use unicorn as the web server
 # gem 'unicorn'
