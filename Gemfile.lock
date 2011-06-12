@@ -97,6 +97,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  activerecord
   annotate
   cancan
   devise
