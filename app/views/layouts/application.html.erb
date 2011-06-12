@@ -7,15 +7,39 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-<div id="user_nav" style="float:right;">
-  <% if client_signed_in? %>
-    Connecté sur <%= current_user.email %>. Ce n'est pas vous ?
-    <%= link_to "Se déconnecter", destroy_client_session_path %>
-  <% else %>
-    <%= link_to "S'inscrire", new_client_registration_path %> ou <%= link_to "se connecter", new_client_session_path %>
-  <% end %>
-</div>
-<%= yield %>
+<div id="wrapper">
 
+
+  <div id="navigate">
+    <div id="home" class="element_nav"> <img src="../images/home.png" /> </div>
+    <div class="separator"></div>
+    <a href="#"><div class="element_nav"><p>Navigation</p></div>  </a>
+    <div class="separator"></div>
+    <div class="element_nav"></div>
+    <div class="element_nav"></div>
+    <div class="element_nav"></div>
+
+      <div id="user_nav" style="float:right;">
+    <% if client_signed_in? %>
+        Connecté sur <%= current_user.email %>. Ce n'est pas vous ?
+        <%= link_to "Se déconnecter", destroy_client_session_path %>
+    <% else %>
+        <%= link_to "S'inscrire", new_client_registration_path %> ou <%= link_to "se connecter", new_client_session_path %>
+    <% end %>
+  </div>
+  </div>
+    <div style="clear:both;"></div>
+  <div id="menu_gauche">
+    <a href="#"><div class="element_menu actionize"><p>Gestion des Agences</p><div class="dropdown"></div> </div></a>
+    <a href="#"><div class="element_menu actionize"><p>Gestion des Leaders</p><div class="dropdown"></div></div>  </a>
+    <a href="#"><div class="element_menu actionize"><p>Gestion des Élèves</p><div class="dropdown"></div></div>     </a>
+    <a href="#"><div class="element_menu actionize"><p>Gestion des Formations</p><div class="dropdown"></div></div></a>
+
+  </div>
+
+  <div id="contenu">
+    <%= yield %>
+  </div>
+</div>
 </body>
 </html>
