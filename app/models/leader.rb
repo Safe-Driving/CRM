@@ -1,7 +1,7 @@
 class Leader < ActiveRecord::Base
-  has_many :agency, :foreign_key => "leader"
-  has_many :trainers_availability, :foreign_key => "availability"
-  has_many :session, :foreign_key => "session"
+  has_many :agency
+  has_many :trainers_availability
+  has_many :session
 
 
 

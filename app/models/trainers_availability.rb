@@ -1,4 +1,4 @@
 class TrainersAvailability < ActiveRecord::Base
-  belongs_to :leader, :foreign_key => "availability"
+  belongs_to :leader
 
 end

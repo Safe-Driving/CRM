@@ -1,4 +1,4 @@
 class VehiclesAvailability < ActiveRecord::Base
-  belongs_to :vehicle, :foreign_key => "vehicle"
+  belongs_to :vehicle
 
 end
