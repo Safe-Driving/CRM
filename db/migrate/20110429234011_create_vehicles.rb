@@ -6,7 +6,6 @@ class CreateVehicles < ActiveRecord::Migration
       t.string :brand
       t.string :model
 	    t.integer :agence
-
       t.timestamps
     end
   end

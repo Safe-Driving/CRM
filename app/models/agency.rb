@@ -1,8 +1,8 @@
 class Agency < ActiveRecord::Base
-  has_many :client, :foreign_key => "agency"
-  has_many :session, :foreign_key => "agency"
-  belongs_to :leader, :foreign_key => "agency"
-  has_many :vehicle, :foreign_key => "agency"
+  has_many :client
+  has_many :session
+  belongs_to :leader
+  has_many :vehicle
 
 
   validates :city, :presence => true

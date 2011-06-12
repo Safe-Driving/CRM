@@ -21,7 +21,7 @@
 
       <div id="user_nav" style="float:right;">
     <% if client_signed_in? %>
-        Connecté sur <%= current_user.email %>. Ce n'est pas vous ?
+        Connecté sur <%= current_client.email %>. Ce n'est pas vous ?
         <%= link_to "Se déconnecter", destroy_client_session_path %>
     <% else %>
         <%= link_to "S'inscrire", new_client_registration_path %> ou <%= link_to "se connecter", new_client_session_path %>
