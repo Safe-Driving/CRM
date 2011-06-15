@@ -1,21 +1,16 @@
   CRM::Application.routes.draw do
 
 
-<<<<<<< HEAD
-
-  resources :formations
-  resources :clients
-=======
->>>>>>> 4a7437375cebf700d71e838e97fff01db8f3597d
-  resources :agencies
-  resources :places
 
   devise_for :clients
   devise_for :leaders
 
-  resources :leaders
   resources :formations
+  resources :agencies
+  resources :places
+  resources :leaders
   resources :clients
+
 
   root :to => "content#index"
 
