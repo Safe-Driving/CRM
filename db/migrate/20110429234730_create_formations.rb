@@ -3,11 +3,12 @@ class CreateFormations < ActiveRecord::Migration
     create_table :formations do |t|
     
       t.datetime :date
-      t.integer :agency
-      t.string :type
-      t.integer :users_number
-      t.integer :trainer
-      t.integer :place
+      t.datetime :datefin
+      t.integer  :agency
+      t.string   :category
+      t.integer  :users_number
+      t.integer  :trainer
+      t.integer  :place
 
       t.timestamps
     end

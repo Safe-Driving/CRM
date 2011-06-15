@@ -8,7 +8,6 @@ class FormationsController < ApplicationController
         @formation = Formation.new(params[:formation])
         #@formation.agency = current_leader.agency
         @formation.save
-
         redirect_to  formations_path
        # @category = Category.find(params[:category][:id])
        # @article.category = @category
@@ -35,12 +34,7 @@ class FormationsController < ApplicationController
 
     def update
      @formation = Formation.find(params[:id])
-     @name = params[:formation][:name]
-     @city = params[:formation][:city]
-     @address = params[:formation][:address]
-     @formation.name = @name
-     @formation.city = @city
-     @formation.address = @address
+
 
      if @formation.save
       redirect_to  formations_path

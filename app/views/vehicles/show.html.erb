@@ -1,0 +1,15 @@
+<h1>Vehicles#show</h1>
+ <tr>
+    <th>Vehicles</th>
+  </tr>
+
+
+   <tr><td class="forum_name">
+     <p><a href="<%= url_for vehicle_path(@vehicle.id) %>"><%= @vehicle.category %></a></p>
+          <p><%= link_to "éditer l'agence", edit_vehicle_path(@vehicle.id) %></p>
+          <%= link_to "Supprimer", vehicle_path(@vehicle.id), :confirm => "Are you sure?", :method => :delete %>
+        </td>
+
+      </tr>
+
+</table>

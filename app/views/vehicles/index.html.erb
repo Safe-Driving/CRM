@@ -1,0 +1,22 @@
+<h1>Vehicles#index</h1>
+ <tr>
+    <th>Vehicles</th>
+  </tr>
+
+
+  <% @vehicles.each do |vehicle| %>
+      <tr onclick="location.href='<%= url_for vehicle_path(vehicle.id) %>'" class="forum_list">
+        <td class="forum_name">
+          <p><a href="<%= url_for vehicle_path(vehicle.id) %>"><%= vehicle.category %></a></p>
+          <p><%= link_to "éditer le vehicule", edit_vehicle_path(vehicle.id) %></p>
+          <%= link_to "Supprimer", vehicle_path(vehicle.id), :confirm => "Are you sure?", :method => :delete %>
+        </td>
+
+      </tr>
+  <% end %>
+
+</table>
+
+<div>
+        <%= link_to "Créer une nouveau vehicule", new_vehicle_path %>
+  </div>

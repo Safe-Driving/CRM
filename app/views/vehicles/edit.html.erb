@@ -1,0 +1,14 @@
+<div id="center_it">
+<h1>Modifier un Vehicle</h1>
+<%= semantic_form_for(@vehicle) do |f| %>
+      <% f.inputs do %>
+          <%= f.input :category %>
+          <%= f.input :brand %>
+          <%= f.input :model %>
+      <% end %>
+
+      <% f.buttons do %>
+          <%= f.commit_button %>
+      <% end %>
+<% end %>
+</div>

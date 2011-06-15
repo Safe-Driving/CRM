@@ -44,8 +44,9 @@ ActiveRecord::Schema.define(:version => 20110429235308) do
 
   create_table "formations", :force => true do |t|
     t.datetime "date"
+    t.datetime "datefin"
     t.integer  "agency"
-    t.string   "type"
+    t.string   "category"
     t.integer  "users_number"
     t.integer  "trainer"
     t.integer  "place"
@@ -119,7 +120,7 @@ ActiveRecord::Schema.define(:version => 20110429235308) do
   end
 
   create_table "vehicles", :force => true do |t|
-    t.string   "type"
+    t.string   "category"
     t.string   "brand"
     t.string   "model"
     t.integer  "agence"

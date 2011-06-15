@@ -2,6 +2,7 @@
 
 
 
+
   devise_for :clients
   devise_for :leaders
 
@@ -10,6 +11,7 @@
   resources :places
   resources :leaders
   resources :clients
+  resources :vehicles
 
 
   root :to => "content#index"
