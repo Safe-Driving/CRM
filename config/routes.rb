@@ -7,6 +7,8 @@
   devise_for :leaders
 
   resources :leaders
+  resources :formations
+  resources :clients
 
   root :to => "content#index"
 
