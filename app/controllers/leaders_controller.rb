@@ -41,4 +41,8 @@ class LeadersController < ApplicationController
      redirect_to :edit
    end
   end
+
+  def calendar
+
+  end
 end
