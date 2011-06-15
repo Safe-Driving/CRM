@@ -12,6 +12,7 @@ gem 'heroku'
 gem 'devise'
 gem 'cancan'
 gem 'activerecord'
+gem 'jquery-rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'
