@@ -2,9 +2,7 @@
 // This file is automatically included by javascript_include_tag :defaults
 jQuery(function(){
 
- jQuery('.menu_container').toggle(function(){
-       jQuery(this).children('.menu_list').slideToggle('500') ;
- }, function(){
-     jQuery(this).children('.menu_list').slideToggle('500') ;
+ jQuery('.menu_container').click(function(){
+       jQuery(this).children('.menu_list').slideDown('500') ;
  });
 });
