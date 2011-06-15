@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110615121912) do
+ActiveRecord::Schema.define(:version => 20110429235308) do
 
   create_table "agencies", :force => true do |t|
     t.string   "city"
@@ -42,10 +42,29 @@ ActiveRecord::Schema.define(:version => 20110615121912) do
   add_index "clients", ["email"], :name => "index_clients_on_email", :unique => true
   add_index "clients", ["reset_password_token"], :name => "index_clients_on_reset_password_token", :unique => true
 
-  create_table "events", :force => true do |t|
-    t.string   "name"
-    t.datetime "start_at"
-    t.datetime "end_at"
+  create_table "formations", :force => true do |t|
+    t.datetime "date"
+    t.datetime "datefin"
+    t.integer  "agency"
+    t.string   "category"
+    t.integer  "users_number"
+    t.integer  "trainer"
+    t.integer  "place"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "formations_participations", :force => true do |t|
+    t.integer  "client"
+    t.integer  "formations"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "formations_scores", :force => true do |t|
+    t.integer  "formation"
+    t.integer  "client"
+    t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -84,32 +103,6 @@ ActiveRecord::Schema.define(:version => 20110615121912) do
     t.datetime "updated_at"
   end
 
-  create_table "sessions", :force => true do |t|
-    t.datetime "date"
-    t.integer  "integer"
-    t.string   "type"
-    t.integer  "users_number"
-    t.integer  "trainer"
-    t.integer  "place"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "sessions_participations", :force => true do |t|
-    t.integer  "client"
-    t.integer  "session"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "sessions_scores", :force => true do |t|
-    t.integer  "session"
-    t.integer  "client"
-    t.integer  "score"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "tests_scores", :force => true do |t|
     t.datetime "date"
     t.integer  "client"
@@ -127,7 +120,7 @@ ActiveRecord::Schema.define(:version => 20110615121912) do
   end
 
   create_table "vehicles", :force => true do |t|
-    t.string   "type"
+    t.string   "category"
     t.string   "brand"
     t.string   "model"
     t.integer  "agence"

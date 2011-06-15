@@ -1,0 +1,22 @@
+<h1>Places#index</h1>
+<table class="forum_table">
+
+
+  <tr>
+    <th>Places</th>
+  </tr>
+
+
+        <tr><td class="forum_name">
+          <p>><%= @place.name %></p>
+          <p>><%= @place.city %></p>
+          <p>><%= @place.address %></p>
+
+          <p><%= link_to "éditer l'agence", edit_place_path(@place.id) %></p>
+          <%= link_to "Supprimer", place_path(@place.id), :confirm => "Are you sure?", :method => :delete %>
+        </td>
+
+      </tr>
+
+</table>
+

@@ -1,18 +1,15 @@
 CRM::Application.routes.draw do
 
-  match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
-
   devise_for :clients
   devise_for :leaders
 
   match 'leaders/calendar',    :to => 'leaders#calendar'
-
-  resources :agencies
-  resources :leaders
   resources :formations
+  resources :agencies
+  resources :places
+  resources :leaders
   resources :clients
-
-
+  resources :vehicles
 
 
   root :to => "content#index"

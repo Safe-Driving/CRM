@@ -1,2 +1,21 @@
-<h1>Agencies#show</h1>
-<p>Find me in app/views/agencies/show.html.erb</p>
+<h1>Agencies#index</h1>
+<table class="forum_table">
+
+
+  <tr>
+    <th>Agences</th>
+  </tr>
+
+
+        <tr><td class="forum_name">
+          <p>><%= @agency.city %></p>
+          <p>><%= @agency.address %></p>
+
+          <p><%= link_to "éditer l'agence", edit_agency_path(@agency.id) %></p>
+          <%= link_to "Supprimer", agency_path(@agency.id), :confirm => "Are you sure?", :method => :delete %>
+        </td>
+
+      </tr>
+
+</table>
+
