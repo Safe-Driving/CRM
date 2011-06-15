@@ -1,0 +1,27 @@
+<h1>Formations#index</h1>
+<table class="forum_table">
+
+
+  <tr>
+    <th>Formations</th>
+  </tr>
+
+
+  <% @formation.each do |formation| %>
+      <tr onclick="location.href='<%= url_for formation_path(formation.id) %>'" class="forum_list">
+        <td class="forum_name">
+          <p><a href="<%= url_for formation_path(formation.id) %>"><%= formation.name %></a></p>
+          <p><a href="<%= url_for formation_path(formation.id) %>"><%= formation.city %></a></p>
+          <p><a href="<%= url_for formation_path(formation.id) %>"><%= formation.address %></a></p>
+          <p><%= link_to "éditer le lieu", edit_formation_path(formation.id) %></p>
+          <%= link_to "Supprimer", formation_path(formation.id), :confirm => "Are you sure?", :method => :delete %>
+        </td>
+
+      </tr>
+  <% end %>
+
+</table>
+
+<div>
+        <%= link_to "Ajouter une formation", new_formation_path %>
+  </div>

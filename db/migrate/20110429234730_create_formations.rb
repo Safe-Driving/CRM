@@ -1,9 +1,9 @@
-class CreateSessions < ActiveRecord::Migration
+class CreateFormations < ActiveRecord::Migration
   def self.up
-    create_table :sessions do |t|
+    create_table :formations do |t|
     
       t.datetime :date
-      t.integer :integer
+      t.integer :agency
       t.string :type
       t.integer :users_number
       t.integer :trainer
@@ -14,6 +14,6 @@ class CreateSessions < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :sessions
+    drop_table :formations
   end
 end

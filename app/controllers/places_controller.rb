@@ -41,9 +41,9 @@ def index
 
    if @place.save
     redirect_to  places_path
-    flash[:notice] = 'Agency was successfully updated.'
+    flash[:notice] = 'place was successfully updated.'
    else
-     flash[:error] = 'Agency was not updated.'
+     flash[:error] = 'place was not updated.'
      redirect_to :edit
    end
   end

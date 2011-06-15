@@ -42,6 +42,32 @@ ActiveRecord::Schema.define(:version => 20110429235308) do
   add_index "clients", ["email"], :name => "index_clients_on_email", :unique => true
   add_index "clients", ["reset_password_token"], :name => "index_clients_on_reset_password_token", :unique => true
 
+  create_table "formations", :force => true do |t|
+    t.datetime "date"
+    t.integer  "agency"
+    t.string   "type"
+    t.integer  "users_number"
+    t.integer  "trainer"
+    t.integer  "place"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "formations_participations", :force => true do |t|
+    t.integer  "client"
+    t.integer  "formations"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "formations_scores", :force => true do |t|
+    t.integer  "formation"
+    t.integer  "client"
+    t.integer  "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "leaders", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -64,32 +90,6 @@ ActiveRecord::Schema.define(:version => 20110429235308) do
     t.integer  "place"
     t.datetime "date_begin"
     t.datetime "date_end"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "sessions", :force => true do |t|
-    t.datetime "date"
-    t.integer  "integer"
-    t.string   "type"
-    t.integer  "users_number"
-    t.integer  "trainer"
-    t.integer  "place"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "sessions_participations", :force => true do |t|
-    t.integer  "client"
-    t.integer  "session"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "sessions_scores", :force => true do |t|
-    t.integer  "session"
-    t.integer  "client"
-    t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

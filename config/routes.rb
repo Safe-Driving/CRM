@@ -2,8 +2,7 @@
 
 
 
-
-
+  resources :formations
   resources :clients
   resources :agencies
   resources :places
