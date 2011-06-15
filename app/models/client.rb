@@ -15,4 +15,5 @@ class Client < ActiveRecord::Base
   has_many :sessions_participations
   has_many :tests_score
 
+
 end

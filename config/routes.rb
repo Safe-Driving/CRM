@@ -4,6 +4,9 @@
   resources :agencies
 
   devise_for :clients
+  devise_for :leaders
+
+  resources :leaders
 
   root :to => "content#index"
 
