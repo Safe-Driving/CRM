@@ -1,8 +1,6 @@
   CRM::Application.routes.draw do
 
 
-
-  resources :clients
   resources :agencies
 
   devise_for :clients
