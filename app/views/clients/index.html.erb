@@ -19,8 +19,10 @@
             <%= client.has_code %>
             <%= client.has_car_permit %>
             <%= client.has_moto_permit %>
-            <%= client.email %>
-            <%= client.email %>
+            <%= client.passing_code %>
+            <%= client.passing_car_permit %>
+            <%= client.passing_moto_permit %>
+            <%= client.agency %>
 
           </p>
           <p><%= link_to "éditer le client", edit_client_path(client.id) %></p>
@@ -33,5 +35,5 @@
 </table>
 
 <div>
-        <%= link_to "Créer une nouvelle agence", new_agency_path %>
+        <%= link_to "Créer un client", new_client_path %>
   </div>

@@ -2,8 +2,11 @@
 
 
 
+
+
   resources :clients
   resources :agencies
+  resources :places
 
   devise_for :clients
 

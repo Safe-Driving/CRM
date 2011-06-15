@@ -1,0 +1,27 @@
+<h1>Places#index</h1>
+<table class="forum_table">
+
+
+  <tr>
+    <th>Lieux</th>
+  </tr>
+
+
+  <% @places.each do |place| %>
+      <tr onclick="location.href='<%= url_for place_path(place.id) %>'" class="forum_list">
+        <td class="forum_name">
+          <p><a href="<%= url_for place_path(place.id) %>"><%= place.name %></a></p>
+          <p><a href="<%= url_for place_path(place.id) %>"><%= place.city %></a></p>
+          <p><a href="<%= url_for place_path(place.id) %>"><%= place.address %></a></p>
+          <p><%= link_to "éditer le lieu", edit_place_path(place.id) %></p>
+          <%= link_to "Supprimer", place_path(place.id), :confirm => "Are you sure?", :method => :delete %>
+        </td>
+
+      </tr>
+  <% end %>
+
+</table>
+
+<div>
+        <%= link_to "Ajouter un lieu", new_place_path %>
+  </div>
