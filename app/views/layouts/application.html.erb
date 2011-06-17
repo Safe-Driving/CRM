@@ -2,10 +2,12 @@
 <html>
 <head>
   <title>CRM</title>
-  <script type="text/javascript" src="/javascripts/jquery.js">
-   <script>jQuery.noConflict();</script>
+  <script type="text/javascript" src="/javascripts/jquery.js" >
+      <script>jQuery.noConflict();</script>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :all %>
+  <%= javascript_include_tag :all%>
+
+
   <%= csrf_meta_tag %>
 </head>
 <body>
@@ -34,45 +36,45 @@
   <div id="menu_gauche">
 
 
-  <div class="menu_container">
-    <a href="#"><div class="element_menu actionize"><p>Leader</p><div class="dropdown"></div></div>  </a>
-    <ul class="menu_list">
-      <a href="<%= url_for new_formation_path %>"><li>Créer une formation</li></a>
-      <a href="<%= url_for formations_path %>"><li>Liste des formations</li></a>
-      <a href="<%= url_for new_agency_path %>"><li>Voir mon planning</li></a>
-    </ul>
-  </div>
+    <div class="menu_container">
+      <a href="#"><div class="element_menu actionize"><p>Leader</p><div class="dropdown"></div></div>  </a>
+      <ul class="menu_list">
+        <a href="<%= url_for new_formation_path %>"><li>Créer une formation</li></a>
+        <a href="<%= url_for formations_path %>"><li>Liste des formations</li></a>
+        <a href="<%= url_for new_agency_path %>"><li>Voir mon planning</li></a>
+      </ul>
+    </div>
 
     <div class="menu_container">
-    <a href="#"><div class="element_menu actionize"><p>Gestion des Agences</p><div class="dropdown"></div> </div></a>
-    <ul class="menu_list">
-      <a href="<%= url_for agencies_path %>"><li>Liste des Agences</li></a>
-      <a href="<%= url_for new_agency_path %>"><li>Ajouter une Agence</li></a>
-    </ul>
+      <a href="#"><div class="element_menu actionize"><p>Gestion des Agences</p><div class="dropdown"></div> </div></a>
+      <ul class="menu_list">
+        <a href="<%= url_for agencies_path %>"><li>Liste des Agences</li></a>
+        <a href="<%= url_for new_agency_path %>"><li>Ajouter une Agence</li></a>
+      </ul>
+    </div>
+
+    <div class="menu_container">
+      <a href="#"><div class="element_menu actionize"><p>Gestion des Leaders</p><div class="dropdown"></div></div>  </a>
+      <ul class="menu_list">
+        <a href="<%= url_for leaders_path %>"><li>Liste des Leaders</li></a>
+        <a href="<%= url_for new_agency_path %>"><li>Ajouter un Leader</li></a>
+      </ul>
+    </div>
+
+    <div class="menu_container">
+      <a href="#"><div class="element_menu actionize"><p>Gestion des Élèves</p><div class="dropdown"></div></div>     </a>
+      <ul class="menu_list">
+        <a href="<%= url_for clients_path %>"><li>Liste des Élèves</li></a>
+        <a href="<%= url_for new_agency_path %>"><li>Présenter un élève</li></a>
+      </ul>
+    </div>
+
+
   </div>
 
-  <div class="menu_container">
-    <a href="#"><div class="element_menu actionize"><p>Gestion des Leaders</p><div class="dropdown"></div></div>  </a>
-    <ul class="menu_list">
-      <a href="<%= url_for leaders_path %>"><li>Liste des Leaders</li></a>
-      <a href="<%= url_for new_agency_path %>"><li>Ajouter un Leader</li></a>
-    </ul>
+  <div id="contenu">
+    <%= yield %>
   </div>
-
-  <div class="menu_container">
-    <a href="#"><div class="element_menu actionize"><p>Gestion des Élèves</p><div class="dropdown"></div></div>     </a>
-    <ul class="menu_list">
-      <a href="<%= url_for clients_path %>"><li>Liste des Élèves</li></a>
-      <a href="<%= url_for new_agency_path %>"><li>Présenter un élève</li></a>
-    </ul>
-  </div>
-
-
-</div>
-
-<div id="contenu">
-  <%= yield %>
-</div>
 </div>
 </body>
 </html>
