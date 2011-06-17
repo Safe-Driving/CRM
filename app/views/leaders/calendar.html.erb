@@ -1,1 +1,13 @@
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+      var obj = <%= raw @formations %>
+
+  $('#calendar').fullCalendar({
+          startParam: 'date',
+          endParam: 'datefin',
+          events: obj
+});
+  });
+</script>
+
 <div id='calendar'></div>
