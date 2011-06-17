@@ -1,17 +1,19 @@
 CRM::Application.routes.draw do
 
+ 
   devise_for :clients
   devise_for :leaders
 
   match 'leaders/calendar',    :to => 'leaders#calendar'
+  match 'tests_scores', :to => 'scores'
   resources :formations
   resources :agencies
   resources :places
   resources :leaders
   resources :clients
   resources :vehicles
-
-
+  resources :scores
+  
   root :to => "content#index"
 
   # The priority is based upon order of creation:

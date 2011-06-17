@@ -1,0 +1,17 @@
+<h1>Scores#show</h1>
+<table class="forum_table">
+
+
+
+
+       <tr> <td class="forum_name">
+          <p><%= @score.date %></p>
+          <p><%= @score.score %></p>
+          <p><%= @score.client %></p>
+          <p><%= link_to "éditer le score", edit_score_path(@score.id) %></p>
+          <%= link_to "Supprimer", score_path(@score.id), :confirm => "Are you sure?", :method => :delete %>
+        </td>
+
+      </tr>
+
+</table>
