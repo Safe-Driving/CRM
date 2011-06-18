@@ -42,4 +42,8 @@ class ClientsController < ApplicationController
      redirect_to :edit
    end
   end
+  
+  def calendar
+     @formations = Formation.all
+  end
 end

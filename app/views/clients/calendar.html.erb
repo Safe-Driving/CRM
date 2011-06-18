@@ -1,0 +1,28 @@
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+
+	var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
+
+      $('#calendar').fullCalendar({
+			events:  [
+                <% @formations.each do |formation| %>
+
+                {
+                    title: '<%= formation.category.titleize + ' #' + formation.id.to_s %>',
+                    start:  new Date(<%= formation.date.strftime('%Y')%>, <%= formation.date.strftime('%m').to_i - 1 %>, <%= formation.date.strftime('%d').to_i%>, <%= formation.date.strftime('%H').to_i %>, <%= formation.date.strftime('%M').to_i %>),
+					allDay: false
+
+                },
+                <% end %>
+            ]
+		});
+
+
+
+  });
+</script>
+
+<div id='calendar'></div>
