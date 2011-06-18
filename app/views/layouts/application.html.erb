@@ -43,10 +43,11 @@
 
     <div id="user_nav" style="float:right;">
       <% if client_signed_in? %>
-          Connecté sur <%= current_client.email %>. Ce n'est pas vous ?
+          Connecté sur Élève <%= current_client.email %>. Ce n'est pas vous ?
           <%= link_to "Se déconnecter", destroy_client_session_path %>
-      <% else %>
-          <%= link_to "S'inscrire", new_client_registration_path %> ou <%= link_to "se connecter", new_client_session_path %>
+      <% elsif  leader_signed_in? %>
+                    Connecté sur Leader <%= current_leader.email %>. Ce n'est pas vous ?
+      <%= link_to "Se déconnecter", destroy_client_session_path %>
       <% end %>
     </div>
   </div>
@@ -84,7 +85,6 @@
       <ul class="menu_list">
         <a href="<%= url_for clients_path %>"><li>Liste des Élèves</li></a>
         <a href="<%= url_for new_client_registration_path %>"><li>Ajouter un élève</li></a>
-        <a href="<%= url_for new_agency_path %>"><li>Présenter un élève</li></a>
       </ul>
     </div>
 

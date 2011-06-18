@@ -8,12 +8,10 @@
 
 
   <% @leaders.each do |leader| %>
-      <tr onclick="location.href='<%= url_for leader_path(leader.id) %>'" class="forum_list">
-        <td class="forum_name">
-          <p><a href="<%= url_for leader_path(leader.id) %>"><%= leader.first_name %></a></p>
-          <p><%= link_to "Editer", edit_leader_path(leader.id) %></p>
-          <%= link_to "Supprimer", leader_path(leader.id), :confirm => "Confirmer la suppression ?", :method => :delete %>
-        </td>
+      <tr>
+        <td><%= leader.first_name + ' ' + leader.last_name %></a></p>
+        <td class="link"><%= link_to "Editer", edit_leader_path(leader.id) %></td>
+        <td class="link"><%= link_to "Supprimer", leader_path(leader.id), :confirm => "Confirmer la suppression ?", :method => :delete %>    </td>
 
       </tr>
   <% end %>
@@ -21,5 +19,5 @@
 </table>
 
 <div>
-        <%= link_to "Créer un nouveau leader", new_leader_path %>
-  </div>
+  <%= link_to "Créer un nouveau leader", new_leader_registration_path %>
+</div>
