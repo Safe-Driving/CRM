@@ -13,8 +13,6 @@ gem 'devise'
 gem 'cancan'
 gem 'activerecord'
 gem 'jquery-rails'
-gem 'lazy_high_charts'
-
 
 # Use unicorn as the web server
 # gem 'unicorn'
