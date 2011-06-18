@@ -1,4 +1,18 @@
 <h1>Liste des Clients</h1>
+
+<form name="sform" action="" style="display:inline;">
+<label for="item_name">Rechercher avec le nom ou le prénom  : </label>
+
+<%= text_field_tag("query", params['query'], :size => 10 ) %>
+</form>
+
+
+<%= image_tag("images/load.gif",
+              :align => 'absmiddle',
+              :border => 0,
+              :id => "spinner",
+              :style => "display: none;" ) %>
+
 <table class="forum_table">
 
 
@@ -9,11 +23,13 @@
 
   <% @clients.each do |client| %>
       <tr onclick="location.href='<%= url_for client_path(client.id) %>'" class="forum_list">
-        <td class="forum_name">
-          <p><a href="<%= url_for client_path(client.id) %>"><%= client.first_name %></a></p>
-          <p><%= link_to "Editer", edit_client_path(client.id) %></p>
-          <%= link_to "Supprimer", client_path(client.id), :confirm => "Confirmer la suppression ?", :method => :delete %>
-        </td>
+        <td class="forum_name"><a href="<%= url_for client_path(client.id) %>"><%= client.first_name %></a></td>
+          <td class="link"><%= link_to "Editer", edit_client_path(client.id) %></td>
+        <td class="link"><%= link_to "Suivi", edit_client_path(client.id) %></td>
+        <td class="link"><%= link_to "Proposer", edit_client_path(client.id) %></td>
+        <td class="link"><%= link_to "Supprimer", client_path(client.id), :confirm => "Confirmer la suppression ?", :method => :delete %></td>
+
+
 
       </tr>
   <% end %>

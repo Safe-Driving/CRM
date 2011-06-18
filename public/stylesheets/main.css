@@ -206,3 +206,28 @@ input, button, select {
 .ui-timepicker-div dl dt{ height: 25px; }
 .ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
 .ui-timepicker-div td { font-size: 90%; }
+
+
+table {
+    border-collapse:collapse;
+    width:770px;
+    text-align:center;
+}
+
+td {
+    padding:3px;
+    border: 2px solid #ccc;
+}
+
+td.link {
+    background:#ccc;
+    width:55px;
+}
+
+td.link a {
+        color:white;
+}
+
+td.link a:color {
+        color:white;
+}

@@ -1,6 +1,7 @@
 class ClientsController < ApplicationController
   def index
-    @clients = Client.all
+    conditions = ["first_name LIKE ? OR last_name LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%"] unless params[:query].nil?
+    @clients = Client.all(:conditions => conditions)
   end
 
   def new
