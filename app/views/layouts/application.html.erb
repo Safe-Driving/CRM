@@ -15,13 +15,30 @@
 
 
   <div id="navigate">
-    <div id="home" class="element_nav"> <img src="../images/home.png" /> </div>
+    <div id="home" class="element_nav"> <a href="<%= url_for :root %>"><%= image_tag("home.png") %></a></div>
     <div class="separator"></div>
-    <a href="#"><div class="element_nav"><p>Navigation</p></div>  </a>
-    <div class="separator"></div>
-    <div class="element_nav"></div>
-    <div class="element_nav"></div>
-    <div class="element_nav"></div>
+    <%=
+        s = ""
+        url = request.path.split('?')  #remove extra query string parameters
+        levels = url[0].split('/') #break up url into different levels
+        levels.each_with_index do |level, index|
+            unless level.blank?
+                if index == levels.size-1 ||
+                        (level == levels[levels.size-2] && levels[levels.size-1].to_i > 0)
+                    s += "<div class='element_nav'><p>#{level.gsub(/_/, ' ').titleize}</p></div><div class='separator'></div>\n" unless level.to_i > 0
+                else
+                    link = "/"
+                    i = 1
+                    while i <= index
+                        link += "#{levels[i]}/"
+                        i+=1
+                    end
+                    s += "<a href=\"#{link}\"><div class='element_nav'><p>#{level.gsub(/_/, ' ').titleize}</p></div></a><div class='separator'></div>\n"
+                end
+            end
+        end
+        raw s
+    -%>
 
     <div id="user_nav" style="float:right;">
       <% if client_signed_in? %>
