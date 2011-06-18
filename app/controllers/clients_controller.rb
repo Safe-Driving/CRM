@@ -46,7 +46,6 @@ class ClientsController < ApplicationController
   def calendar
     @formations_participations = FormationsParticipations.find_all_by_client(@current_client, :select => :formations)
     @formations = Formation.all
-    
   end
 
   def suivi

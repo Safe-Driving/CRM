@@ -14,4 +14,10 @@ class Leader < ActiveRecord::Base
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
 
+
+  def ability
+  @ability ||= Ability.new(self)
+end
+
+
 end
