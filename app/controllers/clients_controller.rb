@@ -44,14 +44,13 @@ class ClientsController < ApplicationController
   end
 
   def calendar
+    @formations_participations = FormationsParticipations.find_all_by_client(@current_client, :select => :formations)
     @formations = Formation.all
+    
   end
 
   def suivi
     @user = Client.find(params[:id])
   end
   
-  def calendar
-     @formations = Formation.all
-  end
 end

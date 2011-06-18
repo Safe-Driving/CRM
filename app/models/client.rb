@@ -12,7 +12,7 @@ class Client < ActiveRecord::Base
 
   belongs_to :agency
   has_many :sessions_score
-  has_many :sessions_participations
+  has_many :formation_participations
   has_many :tests_score
 
 
