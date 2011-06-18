@@ -12,7 +12,7 @@
 		<%= f.input :passing_code %>
         <%= f.input :passing_car_permit %>
         <%= f.input :passing_moto_permit %>
-        <%= f.input :agence %>
+        <%= f.input :agence, :as => :select, :collection => Agency.find(:all) %>
     <% end %>
 
       <% f.buttons do %>
