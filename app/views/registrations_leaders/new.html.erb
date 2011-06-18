@@ -1,0 +1,17 @@
+<h2>Inscription Leader</h2>
+
+<%= semantic_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+
+    <%= f.inputs do %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :email %>
+        <%= f.input :password %>
+        <%= f.input :password_confirmation %>
+        <% end %>
+
+  <p><%= f.submit "Inscription Leader" %></p>
+<% end %>
+

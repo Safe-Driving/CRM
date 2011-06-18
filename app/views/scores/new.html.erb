@@ -4,7 +4,7 @@
       <% f.inputs do %>
       	  <%= f.input :client, :as => :select, :include_blank => false, :collection => Client.find(:all) %>
          <p> <%= f.input :score, :as => :select,:collection => (0..20).to_a, :include_blank => false %> /20 </p>
-          <%= f.input :date %>
+          <%= f.input :date, :as => :string %>
 
       <% end %>
 

@@ -1,25 +1,25 @@
-<h1>Formations#index</h1>
+<h1>Liste des Formations</h1>
 <table class="forum_table">
 
 
   <tr>
-    <th>Formations</th>
+    <th>Type de la Formation</th>
+    <th>Date</th>
+    <th>Agence</th>
+    <th>Formateur</th>
+    <th>Lieu</th>
   </tr>
 
 
   <% @formation.each do |formation| %>
-      <tr onclick="location.href='<%= url_for formation_path(formation.id) %>'" class="forum_list">
-        <td class="forum_name">
-          <p><%= formation.date %></p>
-          <p><%= formation.datefin %></p>
-          <p><%= formation.agency %></p>
-          <p><%= formation.category %></p>
-          <p><%= formation.users_number %></p>
-          <p><%= formation.trainer %></p>
-          <p><a href="<%= url_for formation_path(formation.id) %>"><%= formation.place %></a></p>
-          <p><%= link_to "éditer la formation", edit_formation_path(formation.id) %></p>
-          <%= link_to "Supprimer", formation_path(formation.id), :confirm => "Are you sure?", :method => :delete %>
-        </td>
+      <tr>
+        <td><a href="<%= url_for formation_path(formation.id) %>"><%= formation.category.titleize %></a></td>
+        <td><%= formation.date.strftime("%m/%d/%y") %></td>
+        <td><%= formation.agency %></td>
+        <td><%= formation.trainer %></td>
+        <td><%= formation.place %></td>
+        <td class="link"><%= link_to "Éditer", edit_formation_path(formation.id) %></td>
+        <td class="link"><%= link_to "Supprimer", formation_path(formation.id), :confirm => "Are you sure?", :method => :delete %></td>
 
       </tr>
   <% end %>

@@ -6,6 +6,7 @@ jQuery(document).ready(function() {
 
     $('#formation_date').datetimepicker();
     $('#formation_datefin').datetimepicker();
+    $('#tests_score_date').datepicker();
 
     jQuery('.menu_container').click(function(){
         jQuery(this).children('.menu_list').slideDown('500') ;
