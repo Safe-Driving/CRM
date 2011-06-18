@@ -1,1 +1,8 @@
-Hello World !!
+      <% if client_signed_in? %>
+          Mode Élève
+      <% elsif  leader_signed_in? %>
+      Mode Leader
+      <% else %>
+      <p><%= link_to "Connexion Leader", new_leader_registration_path %></p>
+      <p><%= link_to "Connexion Client", new_client_registration_path %></p>
+      <% end %>
