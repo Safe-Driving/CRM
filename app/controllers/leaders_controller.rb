@@ -43,7 +43,6 @@ class LeadersController < ApplicationController
   end
 
   def calendar
-    ActiveRecord::Base.include_root_in_json = false
      @formations = Formation.all
   end
 
