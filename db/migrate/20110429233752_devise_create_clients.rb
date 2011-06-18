@@ -11,6 +11,9 @@ class DeviseCreateClients < ActiveRecord::Migration
       t.boolean :has_code
       t.boolean :has_car_permit
       t.boolean :has_moto_permit
+      t.boolean :passing_code
+      t.boolean :passing_car_permit
+      t.boolean :passing_moto_permit
       t.integer :agence
 
       # t.encryptable

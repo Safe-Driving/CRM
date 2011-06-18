@@ -28,7 +28,7 @@ class LeadersController < ApplicationController
 
 
   def edit
-    @agency = Agency.find(params[:id])
+    @leader = Leader.find(params[:id])
   end
 
   def update

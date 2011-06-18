@@ -1,0 +1,25 @@
+<h1>Liste des Clients</h1>
+<table class="forum_table">
+
+
+  <tr>
+    <th>Clients</th>
+  </tr>
+
+
+  <% @clients.each do |client| %>
+      <tr onclick="location.href='<%= url_for client_path(client.id) %>'" class="forum_list">
+        <td class="forum_name">
+          <p><a href="<%= url_for client_path(client.id) %>"><%= client.first_name %></a></p>
+          <p><%= link_to "Editer", edit_client_path(client.id) %></p>
+          <%= link_to "Supprimer", client_path(client.id), :confirm => "Confirmer la suppression ?", :method => :delete %>
+        </td>
+
+      </tr>
+  <% end %>
+
+</table>
+
+<div>
+        <%= link_to "Créer un nouveau client", new_client_path %>
+  </div>
