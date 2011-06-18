@@ -50,4 +50,8 @@ class ClientsController < ApplicationController
   def suivi
     @user = Client.find(params[:id])
   end
+  
+  def calendar
+     @formations = Formation.all
+  end
 end
