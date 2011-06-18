@@ -26,7 +26,7 @@
         <td class="forum_name"><a href="<%= url_for client_path(client.id) %>"><%= client.first_name %></a></td>
           <td class="link"><%= link_to "Editer", edit_client_path(client.id) %></td>
         <td class="link"><%= link_to "Suivi", suivi_path(client.id) %></td>
-        <td class="link"><%= link_to "Proposer", edit_client_path(client.id) %></td>
+        <td class="link"><%= link_to "Proposer", proposer_path(client.id) %></td>
         <td class="link"><%= link_to "Supprimer", client_path(client.id), :confirm => "Confirmer la suppression ?", :method => :delete %></td>
 
 

@@ -15,5 +15,12 @@ class Client < ActiveRecord::Base
   has_many :sessions_participations
   has_many :tests_score
 
+  delegate :can?, :cannot?, :to => :ability
+
+
+  def ability
+  @ability ||= Ability.new(self)
+  end
+
 
 end
