@@ -7,13 +7,12 @@
 		var y = date.getFullYear();
 
       $('#calendar').fullCalendar({
-			editable: true,
 			events:  [
                 <% @formations.each do |formation| %>
 
                 {
-                    title: '<%= formation.category %>',
-                    start:  new Date(y, m, d, 10, 30),
+                    title: '<%= formation.category.titleize + ' #' + formation.id.to_s %>',
+                    start:  new Date(<%= formation.date.strftime('%Y')%>, <%= formation.date.strftime('%m').to_i - 1 %>, <%= formation.date.strftime('%d').to_i%>, <%= formation.date.strftime('%H').to_i %>, <%= formation.date.strftime('%M').to_i %>),
 					allDay: false
 
                 },
