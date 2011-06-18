@@ -1,12 +1,13 @@
 CRM::Application.routes.draw do
 
  
-  devise_for :clients
-  devise_for :leaders
+  devise_for :clients, :controllers => {:registrations => "registrations"}
+  devise_for :leaders, :controllers => {:registrations => "registrations"}
 
   match 'leaders/calendar',    :to => 'leaders#calendar'
   match 'clients/calendar',    :to => 'clients#calendar'
   match 'tests_scores', :to => 'scores'
+  match 'clients/suivi', :to => 'clients#suivi'
   resources :formations
   resources :agencies
   resources :places
