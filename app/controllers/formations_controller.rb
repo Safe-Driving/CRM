@@ -1,13 +1,18 @@
 class FormationsController < ApplicationController
   def new
         @formation =  Formation.new
-
   end
 
   def create
-        @formation = Formation.new(params[:formation])
+          params[:formation][:place] =  Place.find(params[:formation][:place])
+          params[:formation][:date] = Date.today
+          params[:formation][:datefin] = Date.today+1
+
+                  @formation = Formation.new(params[:formation])
+
+
         #@formation.agency = current_leader.agency
-        @formation.save
+        @formation.save.inspect
         redirect_to  formations_path
        # @category = Category.find(params[:category][:id])
        # @article.category = @category

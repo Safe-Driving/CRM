@@ -1,4 +1,5 @@
 class PlacesAvailability < ActiveRecord::Base
-  belongs_to :session, :foreign_key => "availability"
+  belongs_to :formation
+  belongs_to :place
 
 end

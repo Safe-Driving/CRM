@@ -2,7 +2,8 @@ class CreatePlacesAvailabilities < ActiveRecord::Migration
   def self.up
     create_table :places_availabilities do |t|
     
-      t.integer :place
+      t.integer :place_id
+      t.integer :formation_id
       t.datetime :date_begin
       t.datetime :date_end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110429235308) do
+ActiveRecord::Schema.define(:version => 20110619124743) do
 
   create_table "agencies", :force => true do |t|
     t.string   "city"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20110429235308) do
     t.integer  "place"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "vehicle"
   end
 
   create_table "formations_participations", :force => true do |t|
@@ -99,23 +100,51 @@ ActiveRecord::Schema.define(:version => 20110429235308) do
   end
 
   create_table "places_availabilities", :force => true do |t|
-    t.integer  "place"
+    t.integer  "place_id"
+    t.integer  "formation_id"
     t.datetime "date_begin"
     t.datetime "date_end"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "sessions", :force => true do |t|
+    t.timestamp "date"
+    t.integer   "integer"
+    t.string    "type"
+    t.integer   "users_number"
+    t.integer   "trainer"
+    t.integer   "place"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+  end
+
+  create_table "sessions_participations", :force => true do |t|
+    t.integer   "client"
+    t.integer   "session"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+  end
+
+  create_table "sessions_scores", :force => true do |t|
+    t.integer   "session"
+    t.integer   "client"
+    t.integer   "score"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+  end
+
   create_table "tests_scores", :force => true do |t|
-    t.datetime "date"
-    t.integer  "client"
-    t.integer  "score"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.timestamp "date"
+    t.integer   "client"
+    t.integer   "score"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "trainers_availabilities", :force => true do |t|
-    t.integer  "trainer"
+    t.integer  "leader_id"
+    t.integer  "formation_id"
     t.datetime "date_begin"
     t.datetime "date_end"
     t.datetime "created_at"
@@ -132,7 +161,8 @@ ActiveRecord::Schema.define(:version => 20110429235308) do
   end
 
   create_table "vehicles_availabilities", :force => true do |t|
-    t.integer  "vehicle"
+    t.integer  "vehicle_id"
+    t.integer  "formation_id"
     t.datetime "date_begin"
     t.datetime "date_end"
     t.datetime "created_at"
