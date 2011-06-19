@@ -23,12 +23,10 @@ class ContentController < ApplicationController
       @new_user.last_name = @last_name
       @new_user.first_name = @first_name 
       
-      @new_user.save!
-      raise @new_user.id.inspect  
-    
+      @new_user.save!    
       #@created_user = Client.find_by_email(@email)
       #raise @created_user.inspect
-      #redirect_to edit_client_path(@new_user.id)
+      redirect_to edit_client_path(@new_user.id)
     flash[:notice] = "l'utilisateur a ete importe"
      else
        flash[:error] = "l'utilisateur existe deja"
