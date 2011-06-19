@@ -3,6 +3,7 @@
 <%= semantic_form_for(@score) do |f| %>
       <% f.inputs do %>
       	  <%= f.input :client, :as => :select, :include_blank => false, :collection => Client.find(:all) %>
+		 <%= f.input :formation, :as => :select, :include_blank => false, :collection => Formation.all %>
          <p> <%= f.input :score, :as => :select,:collection => (0..20).to_a, :include_blank => false %> /20 </p>
           <%= f.input :date, :as => :string %>
 

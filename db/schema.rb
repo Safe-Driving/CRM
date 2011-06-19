@@ -117,38 +117,13 @@ ActiveRecord::Schema.define(:version => 20110629235308) do
     t.datetime "updated_at"
   end
 
-  create_table "sessions", :force => true do |t|
-    t.timestamp "date"
-    t.integer   "integer"
-    t.string    "type"
-    t.integer   "users_number"
-    t.integer   "trainer"
-    t.integer   "place"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-  end
-
-  create_table "sessions_participations", :force => true do |t|
-    t.integer   "client"
-    t.integer   "session"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-  end
-
-  create_table "sessions_scores", :force => true do |t|
-    t.integer   "session"
-    t.integer   "client"
-    t.integer   "score"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-  end
-
   create_table "tests_scores", :force => true do |t|
-    t.timestamp "date"
-    t.integer   "client"
-    t.integer   "score"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.datetime "date"
+    t.integer  "client"
+    t.integer  "score"
+    t.integer  "formation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "trainers_availabilities", :force => true do |t|
