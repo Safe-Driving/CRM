@@ -1,0 +1,25 @@
+<h1>Liste des Formations</h1>
+<table class="forum_table">
+
+
+  <tr>
+    <th>Type de la Formation</th>
+    <th>Date</th>
+    <th>Formateur</th>
+    <th>Lieu</th>
+  </tr>
+
+
+  <% @formation.each do |formation| %>
+
+      <tr>
+        <td><a href="<%= url_for formation_path(formation.id) %>"><%= formation.category.titleize %></a></td>
+        <td><%= formation.date.strftime("%m/%d/%y") %></td>
+        <td><%= formation.trainer %></td>
+        <td><%= formation.place %></td>
+        <td class="link"><%= link_to "Participer", participer_path(formation.id) %></td>
+
+      </tr>
+  <% end %>
+
+</table>

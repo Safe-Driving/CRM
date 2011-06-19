@@ -1,6 +1,4 @@
 CRM::Application.routes.draw do
-
- 
   devise_for :clients, :controllers => {:registrations => "registrations_clients"}
   devise_for :leaders, :controllers => {:registrations => "registrations_leaders"}
 
@@ -12,7 +10,9 @@ CRM::Application.routes.draw do
   match 'import', :to => 'content#import', :as => 'import'  
   match 'prepare', :to => 'content#prepare', :as => 'prepare'  
   match 'go_import', :to => 'content#go_import', :as => 'go_import'  
-  
+  match 'formation_participation', :to => 'formations#formation_list', :as => 'formation_participation'
+  match 'participer/:id', :to => 'formations#participer', :as => 'participer'
+
   resources :formations
   resources :agencies
   resources :places
