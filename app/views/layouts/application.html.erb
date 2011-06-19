@@ -46,16 +46,34 @@
           Connecté sur Élève <%= current_client.email %>. Ce n'est pas vous ?
           <%= link_to "Se déconnecter", destroy_client_session_path %>
       <% elsif  leader_signed_in? %>
-                    Connecté sur Leader <%= current_leader.email %>. Ce n'est pas vous ?
-      <%= link_to "Se déconnecter", destroy_client_session_path %>
+          Connecté sur Leader <%= current_leader.email %>. Ce n'est pas vous ?
+          <%= link_to "Se déconnecter", destroy_client_session_path %>
       <% else %>
-      <%= link_to "Connexion", :root %>
+          <%= link_to "Connexion", :root %>
       <% end %>
     </div>
   </div>
   <div style="clear:both;"></div>
   <div id="menu_gauche">
+    <!--Affichage du menu ToDo -->
+    <% if client_signed_in? %>
 
+    <% elsif  leader_signed_in? %>
+        <%
+           if user.role == 'DG'
+               #raise 'dg'
+
+           elsif user.role == 'DA'
+               #raise 'da'
+
+           elsif user.role == 'Formateur'
+               #raise 'formateur'
+
+           end
+        %>
+    <% else %>
+
+    <% end %>
 
     <div class="menu_container">
       <a href="#"><div class="element_menu actionize"><p>Leader</p><div class="dropdown"></div></div>  </a>
