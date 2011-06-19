@@ -9,6 +9,10 @@ CRM::Application.routes.draw do
   match 'tests_scores', :to => 'scores'
   match 'clients/:id/suivi', :to => 'clients#suivi', :as => 'suivi'
   match 'clients/:id/proposer', :to => 'clients#proposer', :as => 'proposer'
+  match 'import', :to => 'content#import', :as => 'import'  
+  match 'prepare', :to => 'content#prepare', :as => 'prepare'  
+  match 'go_import', :to => 'content#go_import', :as => 'go_import'  
+  
   resources :formations
   resources :agencies
   resources :places
