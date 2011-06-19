@@ -52,4 +52,5 @@ class ClientsController < ApplicationController
     @user = Client.find(params[:id])
   end
   
+  
 end

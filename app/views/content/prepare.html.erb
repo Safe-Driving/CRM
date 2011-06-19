@@ -1,0 +1,14 @@
+
+<div id="center_it">
+<h1>Importer un compte depuis le site communautaire</h1>
+
+<%= semantic_form_for :email,:url => { :controller => 'content', :action => 'go_import' } do |f| %>
+      <% f.inputs do %>
+          <%= f.input :email, :as => :string %>
+      <% end %>
+
+      <% f.buttons do %>
+          <%= f.commit_button %>
+      <% end %>
+<% end %>
+</div>
