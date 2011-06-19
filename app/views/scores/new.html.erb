@@ -2,8 +2,10 @@
 <h1>Nouveau score</h1>
 <%= semantic_form_for(@score) do |f| %>
       <% f.inputs do %>
-      	  <%= f.input :client, :as => :select, :include_blank => false, :collection => Client.find(:all) %>
-		 <%= f.input :formation, :as => :select, :include_blank => false, :collection => Formation.all %>
+      	  <%= f.input :client, :as => :select, :include_blank => false, :collection => Client.find(:all).collect { |c| [ c.email + ' ' + c.email , c.id ] }, :required=>true %>
+		<div id="forma">
+		    <%= render :partial => 'forma'  %>
+		 </div> 
          <p> <%= f.input :score, :as => :select,:collection => (0..20).to_a, :include_blank => false %> /20 </p>
           <%= f.input :date, :as => :string %>
 
@@ -13,3 +15,19 @@
           <%= f.commit_button %>
       <% end %>
 <% end %>
+
+<script type="text/javascript">
+jQuery(function($) {
+  // when the #country field changes
+  $("#score_client").change(function() {
+    // make a POST call and replace the content
+    var client = $('select#score_client :selected').val();
+    if(client == "") client="0";
+    jQuery.get('/profiles/update_client_select/' + country, function(data){
+        $("#forma").html(data);
+    })
+    return false;
+  });
+
+})
+</script>
