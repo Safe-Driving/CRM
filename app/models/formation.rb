@@ -12,11 +12,11 @@ class Formation < ActiveRecord::Base
   has_many :trainers_availability
   has_many :leaders, :through => :trainers_availability
 
-  has_many :formation_participations
-  has_many :clients, :through => :formation_participations 
+  has_many :clients_participations
+  has_many :clients, :through => :clients_participations
 
   has_many :formations_score, :foreign_key => "score"
   has_many :formations_participations, :foreign_key => "formations"
 
-  
+
 end
