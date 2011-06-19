@@ -7,8 +7,9 @@
           <%= f.input :datefin, :as => :string %>
           <%= f.input :category, :as => :select, :collection => ["code","conduite auto","conduite moto"], :include_blank => false %>
           <%= f.input :users_number, :as => :select , :collection => (1..50).to_a, :include_blank => false %>
-          <%= f.input :trainer, :as => :select, :include_blank => false, :collection => Leader.find(:all) %>
-          <%= f.input :place ,  :include_blank => false%>
+          <%= f.input :trainer, :as => :select, :include_blank => false, :collection => Leader.last.get_availables.collect { |c| [ c.first_name + ' ' + c.last_name , c.id ] } %>
+          <%= f.input :vehicle, :as => :select, :include_blank => false, :collection => Vehicle.last.get_availables.collect { |c| [ c.brand + ' ' + c.model , c.id ] } %>
+          <%= f.input :place ,  :include_blank => false, :collection => Place.last.get_availables.collect { |c| [ c.name, c.id ] } %>
       <% end %>
 
       <% f.buttons do %>

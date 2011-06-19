@@ -144,6 +144,7 @@ input, button, select {
     width: 775px;
     position:relative;
     overflow:hidden;
+    padding:10px;
 }
 
 #menu_gauche {

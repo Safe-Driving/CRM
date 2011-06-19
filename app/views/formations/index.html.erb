@@ -12,6 +12,7 @@
 
 
   <% @formation.each do |formation| %>
+
       <tr>
         <td><a href="<%= url_for formation_path(formation.id) %>"><%= formation.category.titleize %></a></td>
         <td><%= formation.date.strftime("%m/%d/%y") %></td>

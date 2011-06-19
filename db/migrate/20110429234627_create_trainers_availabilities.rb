@@ -2,7 +2,8 @@ class CreateTrainersAvailabilities < ActiveRecord::Migration
   def self.up
     create_table :trainers_availabilities do |t|
     
-      t.integer :trainer
+      t.integer :leader_id
+      t.integer :formation_id
       t.datetime :date_begin
       t.datetime :date_end     
 
