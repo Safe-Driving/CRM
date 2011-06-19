@@ -16,3 +16,20 @@
       <% end %>
 <% end %>
 
+<script type="text/javascript">
+jQuery(function($) {
+  // when the #country field changes
+  $("#score_client").change(function() {
+    // make a POST call and replace the content
+    var client = $('select#score_client_id :selected').val();
+    alert(client);
+	if(client == "") client="0";
+	alert(client);
+    jQuery.get('/profiles/update_client_select/' + client, function(data){
+        $("#forma").html(data);
+    })
+    return false;
+  });
+
+})
+</script>
