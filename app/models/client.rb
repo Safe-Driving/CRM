@@ -15,7 +15,12 @@ class Client < ActiveRecord::Base
   has_many :formation_participations
   has_many :tests_score
 
+  has_many :clients_participations
+  has_many :formations, :through => :clients_participations
+
   delegate :can?, :cannot?, :to => :ability
+
+
 
 
   def ability

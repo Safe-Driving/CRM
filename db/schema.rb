@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110619124743) do
+ActiveRecord::Schema.define(:version => 20110629235308) do
 
   create_table "agencies", :force => true do |t|
     t.string   "city"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(:version => 20110619124743) do
 
   add_index "clients", ["email"], :name => "index_clients_on_email", :unique => true
   add_index "clients", ["reset_password_token"], :name => "index_clients_on_reset_password_token", :unique => true
+
+  create_table "clients_participations", :force => true do |t|
+    t.integer  "client_id"
+    t.integer  "formation_id"
+    t.datetime "date_begin"
+    t.datetime "date_end"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "formations", :force => true do |t|
     t.datetime "date"
