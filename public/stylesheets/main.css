@@ -6,9 +6,7 @@ html {
 }
 body {
     margin: 0;
-    padding: 1em; /* Remettre à zéro si nécessaire. */
-    /* Pensez à utiliser une collection de polices (2), par ex:
-font-family: Arial, Helvetica, FreeSans, sans-serif; */
+
     font-size: .8em; /* À adapter pour la police choisie. (3) */
     line-height: 1.4; /* À adapter au design. (4) */
     color: #9e9e9e;
@@ -270,6 +268,26 @@ a.import {
 
 a.import:hover {
     background:url("../images/importh.png");
+}
+
+.flash {
+width:100%;
+height:30px;
+    margin:0;
+    text-align:center;
+    padding-top:10px;
+    font-weight:bold;
+
+}
+
+.notice {
+    background: #cccc00;
+    color:white;
+}
+
+.error {
+    background: #cc0000;
+    color:white;
 }
 
 

@@ -12,11 +12,25 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-    <% flash.each do |key, value| %>
-          <div class="flash <%= key %>"><%= value %></div>
-        <% end %>
+<% flash.each do |key, value| %>
+    <div class="flash <%= key %>"><%= value %></div>
+<% end %>
 <div id="wrapper">
-
+  <div id="logo"><%= image_tag "logo.png" %> <h2 style="float:right;">Interface
+    <% if client_signed_in? %>
+        Client
+    <% elsif  leader_signed_in? %>
+        <% if current_leader.role == 'DG' %>
+            Direction Générale
+        <% elsif current_leader.role == 'DA' %>
+            Direction d'Agence
+        <% elsif current_leader.role == 'Formateur' %>
+            Formateur
+        <% end %>
+    <% else %>
+        <%= link_to "Connexion", :root %>
+    <% end %>
+  </h2></div>
 
   <div id="navigate">
     <div id="home" class="element_nav"> <a href="<%= url_for :root %>"><%= image_tag("home.png") %></a></div>
@@ -58,65 +72,89 @@
   </div>
   <div style="clear:both;"></div>
   <div id="menu_gauche">
-    <!--Affichage du menu ToDo -->
+    <!--Affichage du menu Client -->
     <% if client_signed_in? %>
+        <div class="menu_container">
+          <a href="#"><div class="element_menu actionize"><p>Interface Client</p><div class="dropdown"></div></div>  </a>
+          <ul class="menu_list">
+            <a href="<%= url_for formation_participation_path %>"><li>Participer à une formation</li></a>
+            <a href="<%= url_for formation_participation_path %>"><li>Liste des formations</li></a>
+            <!--ToDo-->   <a href="<%= url_for formations_path %>"><li>Voir mes notes</li></a>
+            <a href="<%= url_for clients_calendar_path %>"><li>Voir mon planning</li></a>
+          </ul>
 
     <% elsif  leader_signed_in? %>
-        <%
-           if user.role == 'DG'
-               #raise 'dg'
+        <% if current_leader.role == 'DG' %>
+            <div class="menu_container">
+              <a href="#"><div class="element_menu actionize"><p>Gestion des Leaders</p><div class="dropdown"></div></div>  </a>
+              <ul class="menu_list">
+                <a href="<%= url_for leaders_path %>"><li>Liste des Leaders</li></a>
+                <a href="<%= url_for new_leader_registration_path %>"><li>Ajouter un Leader</li></a>
+              </ul>
+            </div>
 
-           elsif user.role == 'DA'
-               #raise 'da'
+            <div class="menu_container">
+              <a href="#"><div class="element_menu actionize"><p>Gestion des Agences</p><div class="dropdown"></div></div>  </a>
+              <ul class="menu_list">
+                <a href="<%= url_for new_agency_path %>"><li>Créer une agence</li></a>
+                <a href="<%= url_for agencies_path %>"><li>Liste des agences</li></a>
+              </ul>
+            </div>
 
-           elsif user.role == 'Formateur'
-               #raise 'formateur'
 
-           end
-        %>
+
+        <% elsif current_leader.role == 'DA' %>
+
+            <div class="menu_container">
+              <a href="#"><div class="element_menu actionize"><p>Interface Agence</p><div class="dropdown"></div></div>  </a>
+              <ul class="menu_list">
+                <a href="<%= url_for leaders_path %>"><li>Liste des Formateurs</li></a>
+                <a href="<%= url_for new_leader_registration_path %>"><li>Ajouter un Formateur</li></a>
+              </ul>
+            </div>
+            <div class="menu_container">
+              <a href="#"><div class="element_menu actionize"><p>Gestion des Élèves</p><div class="dropdown"></div></div>     </a>
+              <ul class="menu_list">
+                <a href="<%= url_for clients_path %>"><li>Liste des Élèves</li></a>
+                <a href="<%= url_for new_client_registration_path %>"><li>Ajouter un élève</li></a>
+              </ul>
+            </div>
+
+            <div class="menu_container">
+              <a href="#"><div class="element_menu actionize"><p>Gestion des Formations</p><div class="dropdown"></div></div>  </a>
+              <ul class="menu_list">
+                <a href="<%= url_for new_formation_path %>"><li>Créer une formation</li></a>
+                <a href="<%= url_for formations_path %>"><li>Liste des formations</li></a>
+              </ul>
+            </div>
+
+        <% elsif current_leader.role == 'Formateur' %>
+            <div class="menu_container">
+              <a href="#"><div class="element_menu actionize"><p>Interface Formateur</p><div class="dropdown"></div></div>     </a>
+              <ul class="menu_list">
+                <a href="<%= url_for leaders_calendar_path %>"><li>Voir mon planning</li></a>
+              </ul>
+            </div>
+            <div class="menu_container">
+              <a href="#"><div class="element_menu actionize"><p>Gestion des Élèves</p><div class="dropdown"></div></div>     </a>
+              <ul class="menu_list">
+                <a href="<%= url_for clients_path %>"><li>Liste des Élèves</li></a>
+                <a href="<%= url_for new_client_session_path %>"><li>Noter un élève</li></a>
+                <a href="<%= url_for new_client_session_path %>"><li>Proposer un élève</li></a>
+              </ul>
+            </div>
+
+        <%   end  %>
     <% else %>
 
     <% end %>
 
-    <div class="menu_container">
-      <a href="#"><div class="element_menu actionize"><p>Leader</p><div class="dropdown"></div></div>  </a>
-      <ul class="menu_list">
-        <a href="<%= url_for new_formation_path %>"><li>Créer une formation</li></a>
-        <a href="<%= url_for formations_path %>"><li>Liste des formations</li></a>
-        <a href="<%= url_for new_agency_path %>"><li>Voir mon planning</li></a>
-      </ul>
+
     </div>
 
-    <div class="menu_container">
-      <a href="#"><div class="element_menu actionize"><p>Gestion des Agences</p><div class="dropdown"></div> </div></a>
-      <ul class="menu_list">
-        <a href="<%= url_for agencies_path %>"><li>Liste des Agences</li></a>
-        <a href="<%= url_for new_agency_path %>"><li>Ajouter une Agence</li></a>
-      </ul>
+    <div id="contenu">
+      <%= yield %>
     </div>
-
-    <div class="menu_container">
-      <a href="#"><div class="element_menu actionize"><p>Gestion des Leaders</p><div class="dropdown"></div></div>  </a>
-      <ul class="menu_list">
-        <a href="<%= url_for leaders_path %>"><li>Liste des Leaders</li></a>
-        <a href="<%= url_for new_leader_session_path %>"><li>Ajouter un Leader</li></a>
-      </ul>
-    </div>
-
-    <div class="menu_container">
-      <a href="#"><div class="element_menu actionize"><p>Gestion des Élèves</p><div class="dropdown"></div></div>     </a>
-      <ul class="menu_list">
-        <a href="<%= url_for clients_path %>"><li>Liste des Élèves</li></a>
-        <a href="<%= url_for new_client_session_path %>"><li>Ajouter un élève</li></a>
-      </ul>
-    </div>
-
-
   </div>
-
-  <div id="contenu">
-    <%= yield %>
-  </div>
-</div>
 </body>
 </html>

@@ -59,6 +59,7 @@ class FormationsController < ApplicationController
   def participer
     forma = Formation.find(params[:id])
     current_user.formations.push(forma)
+    redirect_to formation_participation_path
   end
 
   end
