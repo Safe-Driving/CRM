@@ -13,6 +13,7 @@ class Client < ActiveRecord::Base
   belongs_to :agency
   has_many :sessions_score
   has_many :formation_participations
+  has_many :formations, :through => :formation_participations
   has_many :tests_score
 
   delegate :can?, :cannot?, :to => :ability

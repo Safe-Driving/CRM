@@ -5,7 +5,7 @@ class CreateTestsScores < ActiveRecord::Migration
       t.datetime :date
       t.integer :client
       t.integer :score
-
+      t.integer :formation
       t.timestamps
     end
   end
