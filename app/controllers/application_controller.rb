@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
   end
 
   def current_ability
-    current_user.ability
+    if !current_leader.nil?
+      current_leader.ability
+    elsif !current_client.nil?
+      current_client.ability
+    end
   end
 end

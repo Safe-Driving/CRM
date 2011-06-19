@@ -141,8 +141,9 @@ input, button, select {
     float: left;
     margin-left: 13px;
     margin-top: 25px;
-    padding: 10px;
     width: 775px;
+    position:relative;
+    overflow:hidden;
 }
 
 #menu_gauche {
@@ -231,3 +232,45 @@ td.link a {
 td.link a:color {
         color:white;
 }
+
+a.leader {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:123px;
+}
+a.client {
+    position:absolute;
+    top:123px;
+    left:0;
+    width:100%;
+    height:123px;
+}
+
+a.leader:hover {
+    opacity: 0.2;
+    background:white;
+}
+
+a.client:hover {
+    opacity: 0.2;
+    background:white;
+}
+
+
+a.import {
+    margin:auto;
+    width:309px;
+    height:41px;
+    display:block;
+    background:url("../images/import.png");
+}
+
+a.import:hover {
+    background:url("../images/importh.png");
+}
+
+
+
+
