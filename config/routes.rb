@@ -13,6 +13,8 @@ CRM::Application.routes.draw do
   match 'formation_participation', :to => 'formations#formation_list', :as => 'formation_participation'
   match 'participer/:id', :to => 'formations#participer', :as => 'participer'
 
+  match 'scores/update_client_select/:id', :controller=>'scores', :action => 'update_client_select'
+  
   resources :formations
   resources :agencies
   resources :places

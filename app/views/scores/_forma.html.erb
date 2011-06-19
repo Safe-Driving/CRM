@@ -1,0 +1,9 @@
+<%= semantic_form_for "score", :remote=>true, do |form| %>
+  <%= form.inputs do %>
+    <% if !@formations.blank? %>
+ <%= form.input :formation, :as => :select, :include_blank => false, :collection => @formations.collect { |c| [ c.category + ' ' + c.category + ' ' + c.category , c.id ] }, :required=>true %>
+    <% else %>
+      <%= form.input :formation, :collection=>[] %>
+    <% end %>
+  <% end %>
+<% end %>

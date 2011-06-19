@@ -37,5 +37,9 @@ class ScoresController < ApplicationController
     redirect_to scores_path
   end
   
-
+  def update_client_select
+    @client = Client.find(params[:id])
+      @formations = @client.formations
+      render :partial => "forma", :locals => { :formations => @formations }
+  end
 end

@@ -2,10 +2,10 @@ class CreateFormationsScores < ActiveRecord::Migration
   def self.up
     create_table :formations_scores do |t|
     
-      t.integer :formation
+      t.datetime :date
       t.integer :client
       t.integer :score
-
+      t.integer :formation
       t.timestamps
     end
   end
