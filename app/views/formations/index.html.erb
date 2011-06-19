@@ -5,7 +5,6 @@
   <tr>
     <th>Type de la Formation</th>
     <th>Date</th>
-    <th>Agence</th>
     <th>Formateur</th>
     <th>Lieu</th>
   </tr>
@@ -16,7 +15,6 @@
       <tr>
         <td><a href="<%= url_for formation_path(formation.id) %>"><%= formation.category.titleize %></a></td>
         <td><%= formation.date.strftime("%m/%d/%y") %></td>
-        <td><%= formation.agency %></td>
         <td><%= formation.trainer %></td>
         <td><%= formation.place %></td>
         <td class="link"><%= link_to "Éditer", edit_formation_path(formation.id) %></td>

@@ -9,7 +9,9 @@ class FormationsController < ApplicationController
           params[:formation][:datefin] = Date.today+1
 
                   @formation = Formation.new(params[:formation])
-
+         @formation.vehicles.push(Vehicle.find(params[:formation][:vehicle]))
+         @formation.leaders.push(Leader.find(params[:formation][:trainer]))
+         @formation.places.push(Place.find(params[:formation][:place]))
 
         #@formation.agency = current_leader.agency
         @formation.save.inspect
@@ -49,4 +51,14 @@ class FormationsController < ApplicationController
        redirect_to :edit
      end
     end
+
+  def formation_list
+      @formation = Formation.all
+  end
+
+  def participer
+    forma = Formation.find(params[:id])
+    current_user.formations.push(forma)
+  end
+
   end

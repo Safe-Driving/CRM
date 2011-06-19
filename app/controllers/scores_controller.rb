@@ -38,8 +38,8 @@ class ScoresController < ApplicationController
   end
   
   def update_client_select
-    @client = params[:client]
-      @formations = Formation.all
-      render :partial => "forma", :locals => { :forma => forma }
+    @client = Client.find(params[:id])
+      @formations = @client.formations
+      render :partial => "forma", :locals => { :formations => @formations }
   end
 end
