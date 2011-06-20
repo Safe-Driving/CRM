@@ -15,6 +15,7 @@ class FormationsController < ApplicationController
 
         #@formation.agency = current_leader.agency
         @formation.save.inspect
+
         redirect_to  formations_path
        # @category = Category.find(params[:category][:id])
        # @article.category = @category

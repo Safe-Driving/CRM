@@ -1,4 +1,4 @@
-<h1>Proposer un élève aux examens officiels : <%= @user.first_name.titleize + ' ' + @user.last_name.titleize %></h1>
+<h1>Proposer un élève aux examens officiels : Romain Delhoute</h1>
 
 
 <%= semantic_form_for(:proposer) do |f| %>
@@ -8,5 +8,5 @@
         <%= f.input :type_examen, :as => :select, :collection =>['Examen du Code de la Route', 'Examen de Conduite'] %>
     <% end %>
 
-  <p><%= f.submit "Proposer " + @user.first_name.titleize + ' ' + @user.last_name.titleize %></p>
+      <p><%= f.submit "Proposer " + @user.first_name.titleize + ' ' + @user.last_name.titleize %></p>
 <% end %>

@@ -6,6 +6,7 @@ class AgenciesController < ApplicationController
   def create
     @agency = Agency.new(params[:agency])
     @agency.save
+     flash[:error] = " Une erreur est survenue !"
      redirect_to  agencies_path
    # @category = Category.find(params[:category][:id])
    # @article.category = @category

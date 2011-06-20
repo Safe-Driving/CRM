@@ -82,6 +82,7 @@
             <!--ToDo-->   <a href="<%= url_for formations_path %>"><li>Voir mes notes</li></a>
             <a href="<%= url_for clients_calendar_path %>"><li>Voir mon planning</li></a>
           </ul>
+        </div>
 
     <% elsif  leader_signed_in? %>
         <% if current_leader.role == 'DG' %>
@@ -146,7 +147,12 @@
 
         <%   end  %>
     <% else %>
-
+                     <div class="menu_container">
+              <a href="#"><div class="element_menu actionize"><p>Bienvenue !</p><div class="dropdown"></div></div>  </a>
+              <ul class="menu_list">
+                <a href="<%= url_for :root %>"><li>Connexion</li></a>
+              </ul>
+            </div>
     <% end %>
 
 

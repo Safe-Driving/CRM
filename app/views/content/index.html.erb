@@ -1,7 +1,12 @@
       <% if client_signed_in? %>
           Mode Élève
       <% elsif  leader_signed_in? %>
-      Mode Leader
+      <h2>Interface Formateur</h2>
+          <ul>
+            <li> Noter vos élèves</li>
+            <li> Proposer les aux examens officiels</li>
+            <li> Visualiser votre plannings</li>
+          </ul>
       <% else %>
           <img src="images/log.png" />
       <a href="<%= url_for new_leader_session_path %>" class="leader"></a>

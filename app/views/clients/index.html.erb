@@ -7,12 +7,6 @@
 </form>
 
 
-<%= image_tag("images/load.gif",
-              :align => 'absmiddle',
-              :border => 0,
-              :id => "spinner",
-              :style => "display: none;" ) %>
-
 <table class="forum_table">
 
 
@@ -22,8 +16,9 @@
 
 
   <% @clients.each do |client| %>
+
       <tr onclick="location.href='<%= url_for client_path(client.id) %>'" class="forum_list">
-        <td class="forum_name"><a href="<%= url_for client_path(client.id) %>"><%= client.first_name %></a></td>
+        <td class="forum_name"><a href="<%= url_for client_path(client.id) %>"> Romain DELHOUTE</a></td>
           <td class="link"><%= link_to "Editer", edit_client_path(client.id) %></td>
         <td class="link"><%= link_to "Suivi", suivi_path(client.id) %></td>
         <td class="link"><%= link_to "Proposer", proposer_path(client.id) %></td>
@@ -37,5 +32,5 @@
 </table>
 
 <div>
-        <%= link_to "Créer un nouveau client", new_client_path %>
+
   </div>
